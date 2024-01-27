@@ -15,42 +15,22 @@ class Vacancy:
     url : str
             Ссылка на вакансию
     employer : str
-            Сотрудник
+            Работодатель
     salary_from : int
             Зарплата от
     salary_to : int
             Зарплата до
     description : str
-            Описание
+            Описание вакансии
 
     """
 
-    def __init__(self, name: str, url: str, employer: str, salary_from: Optional[int], salary_to: Optional[int], description: str):
-        """
-        Функция __init__ переопределяет магический метод, 
-        устанавливает все необходимые атрибуты для объекта Vacancy.
-
-        Атрибуты
-        --------
-        name : str
-            Наименования вакансии
-        url : str
-            Ссылка на вакансию
-        employer : str
-            Сотрудник
-        salary_from : int
-            Зарплата от
-        salary_to : int
-            Зарплата до
-        description : str
-            Описание
-        """
-        self.name = name
-        self.url = url
-        self.employer = employer
-        self.salary_from = salary_from
-        self.salary_to = salary_to
-        self.description = description
+    name: str
+    url: str
+    employer: str
+    salary_from: Optional[int]
+    salary_to: Optional[int]
+    description: Optional[str]
 
     def __repr__(self) -> str:
         """

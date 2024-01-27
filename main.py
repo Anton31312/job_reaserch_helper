@@ -4,6 +4,8 @@ from src.abstract_parser import AbstractParser
 from src.hhru.hhru_parser import HHruParser
 from src.superjob.superjob_parser import SuperJobParser
 from views.save.json_save import JsonSave
+from views.save.csv_save import CSVSave
+from views.save.exсel_save import ExcelSave
 from views.view import display_vacancy
 
 
@@ -13,7 +15,10 @@ def main():
     Создает экземпляры класса. 
     Связывает функционирование программы в единую оболочку.
     """
-    save = JsonSave()
+    save_json = JsonSave()
+    save_csv = CSVSave()
+    save_excel = ExcelSave()
+
     parsers: List[Tuple[str, AbstractParser]] = [('HeadHunter', HHruParser()), ('SuperJob', SuperJobParser())]
 
     print('Здравствуй, соискатель!')
@@ -38,12 +43,14 @@ def main():
             print('\nДанные для дальнейшего использования получены не были.')
             continue
         else:
-            save.write_data(data)
+            save_json.write_data(data)
+            save_csv.write_data(data)
+            save_excel.write_data(data)
             print(f'\nНайдено: {len(data)} вакансий.')
 
         print('\nВведите номер вакансии для отображения.')
         count = int(input(': '))
-        _data = save.get_data()
+        _data = save_json.get_data()
         display_vacancy(_data[:count])
 
 

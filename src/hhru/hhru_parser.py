@@ -12,7 +12,7 @@ class HHruParser(AbstractParser):
     Предназначен для запроса к API сервиса HeadHunter и получению вакансий.
     """
     base_url: str = 'https://api.hh.ru/vacancies'
-    headers: Dict[str, str] = {"User_Agent": "HHScalperApp 1.0"}
+    headers: Dict[str, str] = {"User_Agent": "user_agent"}
     params: Dict[str, Any] = {"archived": False, 'area': 113, 'per_page': 100}
 
     def get_vacancy(self, keyword: Optional[str] = None) -> List[Vacancy]:
